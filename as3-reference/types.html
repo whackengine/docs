@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="as3-reference" data-section="as3-reference/types.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../as3-reference/as3-cheatsheet.html"><button class="button">⯇</button></a><a href="../as3-reference/asdoc.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Types</h1><p>ActionScript defines three minimum types: <code>void</code>, <code>null</code>, and <code>Object</code>, of which only <code>void</code> and <code>Object</code> and its infinite subclasses are expressed by the user.</p>
+<h1 id="void-type" tabindex="-1">Void type</h1>
+<p>The <code>void</code> type consists of the <code>undefined</code> value.</p>
+<h1 id="null-type" tabindex="-1">Null type</h1>
+<p>The <code>null</code> type consists of the <code>null</code> value, although no type annotation is allowed to use the <code>null</code> type.</p>
+<h1 id="object-type" tabindex="-1">Object type</h1>
+<p>The <code>Object</code> type represents objects containing properties in different forms.</p>
+<h2 id="nullability" tabindex="-1">Nullability</h2>
+<p><code>Object</code> may be the <code>null</code> value, except its subclasses <code>Number</code>, <code>float</code>, <code>int</code>, <code>uint</code> and <code>Boolean</code>.</p>
+<p><code>Object</code> may be the <code>undefined</code> value, except all of its subclasses.</p>
+<h1 id="primitive-types" tabindex="-1">Primitive types</h1>
+<p>The types <code>Number</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>Boolean</code> and <code>String</code> are final subclasses of <code>Object</code> that are considered primitive types.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Number</code></td>
+<td>IEEE 754 double precision floating point. Includes <code>NaN</code>, <code>+Infinity</code> and <code>-Infinity</code>.</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>IEEE 754 single precision floating point. Includes <code>NaN</code>, <code>+Infinity</code> and <code>-Infinity</code>.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Signed 32 bit integer</td>
+</tr>
+<tr>
+<td><code>uint</code></td>
+<td>Unsigned 32 bit integer</td>
+</tr>
+<tr>
+<td><code>Boolean</code></td>
+<td>Boolean that is <code>false</code> or <code>true</code></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td>String consisting of UTF-16 code units</td>
+</tr>
+</tbody>
+</table>
+<h1 id="array-type" tabindex="-1">Array type</h1>
+<p>The <code>Array.&lt;T&gt;</code> type, also expressed as <code>[T]</code>, is an unoptimized insertion-order collection of values. Indices are zero based.</p>
+<p>The following program demonstrates using the <code>Array</code> type:</p>
+<pre><code class="language-as3">const list:[Number] = [10, 5];
+// add a new element equivalent to first value + second value
+list.push(list[0] + list[1]);
+trace(&quot;length:&quot;, list.length, &quot;third value:&quot;, list[2]);
+
+// print values
+trace(&quot;enumerating values...&quot;);
+for each (var val:Number in list)
+{
+    trace(&quot; &quot;, val);
+}
+</code></pre>
+<p>The program log should be:</p>
+<pre><code class="language-plain">length: 3  third value: 15
+enumerating values...
+   10
+   5
+   15
+</code></pre>
+<h1 id="vector-type" tabindex="-1">Vector type</h1>
+<p>The <code>Vector.&lt;T&gt;</code> type is an optimized insertion-order collection of values that is used similiarly to <code>Array</code>.</p>
+<p>For numbers where <code>T</code> is one of the numeric types, the <code>Vector</code> class is represented more efficiently compared to <code>Array</code>.</p>
+<p>The following program demonstrates general usage of <code>Vector</code>:</p>
+<pre><code class="language-as3">const vector:Vector.&lt;Number&gt; = new &lt;Number&gt; [ 10, 5 ];
+// populate Vector
+for (var i:int = 1, j:int = 0; i &lt;= 10; i++, j = ++j % 2)
+{
+    vector.push(vector[j] * i);
+}
+// enumerate values
+for each (var val:Number in vector)
+{
+    trace(val);
+}
+</code></pre>
+<h1 id="tuple-type" tabindex="-1">Tuple type</h1>
+<p>The tuple type, expressed as two or more types between brackets, as in <code>[Boolean, String]</code>, is a compile time type that is equivalent to <code>Array</code>, performing checks ahead of time for ensuring that the array consists of a certain sequence of elements of a specific type.</p>
+<p>The tuple type is useful for example when a function returns multiple values:</p>
+<pre><code>function process(data:String):[Boolean,String]
+{
+    // code...
+    return [val1, val2];
+}
+</code></pre>
+<h1 id="function-type" tabindex="-1">Function type</h1>
+<p>The <code>Function</code> type represents a function or a bound method that you may call in ActionScript.</p>
+<p>In addition, a compile time type over <code>Function</code> allows you to ensure a function takes a specific sequence of parameters and that it returns a specific type:</p>
+<pre><code class="language-as3">// a function type taking a rest parameter
+type TakeRest = function(...[String]):void;
+
+// a function type taking an optional boolean
+type TakeOptBoolean = function(Boolean=):void;
+
+// a fnuction type taking a required integer
+type TakeInt = function(int):void;
+</code></pre>
+<h1 id="namespace-type" tabindex="-1">Namespace type</h1>
+<p>The <code>Namespace</code> type is used both for representing ActionScript 3 namespaces and XML namespaces.</p>
+<h1 id="nullable-type" tabindex="-1">Nullable type</h1>
+<p>The nullable type <code>T?</code> or <code>?T</code> is a compile time type enforcing that a type contains <code>null</code>. Note that almost all types contain <code>null</code> already.</p>
+<h1 id="non-nullable-type" tabindex="-1">Non nullable type</h1>
+<p>The non nullable type <code>T!</code> is a compile time ensuring that a type does not contain <code>null</code>.</p>
+<h1 id="dictionary-type" tabindex="-1">Dictionary type</h1>
+<p>The <code>whack.utils.Dictionary</code> type is a flexible mapping of arbitrary key-value pairs, where the user may access these pairs using common property operators.</p>
+<p>The <code>Dictionary</code> type is safe to use when it comes to solving name ambiguity:</p>
+<ul>
+<li>Reading, writing or deleting a property from a <code>Dictionary</code> object will always access key-value pair data of the Dictionary.</li>
+<li>Calling a property within a <code>Dictionary</code> object will call a method defined by the <code>Dictionary</code> class.</li>
+</ul>
+<p>The following program demonstrates the effects of using <code>Dictionary</code>:</p>
+<pre><code class="language-as3">import whack.utils.Dictionary;
+
+const dict = new Dictionary();
+
+// define a &quot;x&quot; key
+dict.x = 10;
+
+// print the number of key-value pairs
+trace(dict.length()); // 1
+
+// define a &quot;length&quot; key
+dict.length = 0;
+
+// print the number of key-value pairs
+trace(dict.length()); // 2
+
+// print keys
+for (var k in dict)
+{
+    trace(k);
+}
+// &quot;x&quot;
+// &quot;length&quot;
+
+// print values
+for each (var v in dict)
+{
+    trace(v);
+}
+// 10
+// 0
+
+// delete the &quot;length&quot; key
+delete dict.length;
+
+// define a Function key
+dict.m = function(a:Number):* (a * 10);
+
+// call it
+trace(dict.call(&quot;m&quot;, 10)); // 100
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../as3-reference/as3-cheatsheet.html"><button class="button">⯇</button></a><a href="../as3-reference/asdoc.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="using-whack" data-section="using-whack/using-asdoc/asdoc-configuration.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASDoc configuration format</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-asdoc.html"><b>Using ASDoc documentation</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../using-whack/using-asdoc.html"><button class="button">⯇</button></a><a href="../../using-whack/skinning.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">ASDoc configuration format</h1><p>A Whack package may include an ASDoc configuration file (<code>asdoc.xml</code>) which links sections and media files to be rendered during ASDoc compilation.</p>
+<h1 id="example" tabindex="-1">Example</h1>
+<p>The following is an example <code>asdoc.xml</code> XML file that uses the <code>docs</code> directory for the ASDoc assets and sections:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;asdoc&gt;
+    &lt;root-path&gt;docs&lt;/root-path&gt;
+    &lt;!-- Home section --&gt;
+    &lt;home title=&quot;My Package's Home&quot; path=&quot;index.md&quot;/&gt;
+    &lt;!-- Other sections --&gt;
+    &lt;sections&gt;
+        &lt;section title=&quot;Getting to know Foo&quot; path=&quot;foo.md&quot;&gt;
+            &lt;section title=&quot;Getting to know Qux&quot; path=&quot;qux.md&quot;/&gt;
+        &lt;/section&gt;
+    &lt;/sections&gt;
+&lt;/asdoc&gt;
+</code></pre>
+<h1 id="root-path" tabindex="-1">Root path</h1>
+<p>The <code>&lt;root-path&gt;</code> option of the configuration file indicates the root path for the <code>path</code> option of all sections and the assets, including the <code>home</code> section, so that it does not have to be repeated across sections.</p>
+<p>The compiler will recursively copy any media files (PNG, SVG, GIF, JPEG, JPG, BMP, MP4) from the directory pointed by the <code>&lt;root-path&gt;</code> option.</p>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-asdoc.html"><b>Using ASDoc documentation</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../using-whack/using-asdoc.html"><button class="button">⯇</button></a><a href="../../using-whack/skinning.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

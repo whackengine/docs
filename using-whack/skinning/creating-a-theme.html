@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="using-whack" data-section="using-whack/skinning/creating-a-theme.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating an user interface theme</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/skinning.html"><b>Skinning the user interface</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../using-whack/skinning.html"><button class="button">⯇</button></a><div><button class="button" disabled>⯈</button></div></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Creating an user interface theme</h1><p>A theme defines a cascading style sheet that may be applied to the Whack application. A theme is logical, therefore it is an <code>.as</code> file defining a class that extends <code>whack.themes.Theme</code>.</p>
+<pre><code class="language-as3">package
+{
+    import whack.themes.*;
+    public class HelloWorldTheme extends Theme
+    {
+    }
+}
+</code></pre>
+<h1 id="linking-a-cascading-style-sheet-file" tabindex="-1">Linking a cascading style sheet file</h1>
+<p>A theme may link a cascading style sheet file for expressing the user interface skins in a concise way.</p>
+<pre><code class="language-as3">package
+{
+    import whack.themes.*;
+    [StyleSheet(source=&quot;style.css&quot;)]
+    public class HelloWorldTheme extends Theme
+    {
+    }
+}
+</code></pre>
+<p>Example cascading style sheet:</p>
+<pre><code class="language-css">@namespace w &quot;http://ns.whack.net/2024&quot;;
+
+@font-face {
+    fontFamily: &quot;Open Sans&quot;;
+    fontWeight: 100 700;
+    fontStyle: normal;
+    src: url(&quot;opensans.ttf&quot;);
+}
+
+w|Button {
+    fontFamily: &quot;Open Sans&quot;;
+}
+</code></pre>
+<h2 id="variables" tabindex="-1">Variables</h2>
+<p>In cascading style sheets, the function <strong>PropertyReference</strong>(name) resolves to a property within the theme class block, whether it is a static or instance property.</p>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/skinning.html"><b>Skinning the user interface</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../using-whack/skinning.html"><button class="button">⯇</button></a><div><button class="button" disabled>⯈</button></div></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

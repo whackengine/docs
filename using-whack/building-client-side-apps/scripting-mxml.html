@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="using-whack" data-section="using-whack/building-client-side-apps/scripting-mxml.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripting the MXML application</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/building-client-side-apps.html"><b>Building client-side applications</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../using-whack/building-client-side-apps/getting-started.html"><button class="button">⯇</button></a><a href="../../using-whack/using-mxml.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Scripting the MXML application</h1><p>MXML files insert ActionScript code through a <code>&lt;w:Script&gt;</code> tag containing code inside a <code>&lt;![CDATA[ ... ]]&gt;</code> markup.</p>
+<pre><code class="language-mxml">&lt;!-- src/com/example/ExampleApplication.mxml --&gt;
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;w:Application xmlns:w=&quot;http://ns.whack.net/2024&quot;&gt;
+    &lt;w:Script&gt;&lt;![CDATA[
+        // ActionScript
+    ]]&gt;&lt;/w:Script&gt;
+&lt;/w:Application&gt;
+</code></pre>
+<p>For initialiser code, handle the <code>creationComplete</code> event in the <code>&lt;w:Application&gt;</code> tag:</p>
+<pre><code class="language-mxml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;w:Application
+    xmlns:w=&quot;http://ns.whack.net/2024&quot;
+    creationComplete=&quot;initialise()&quot;&gt;
+    &lt;w:Script&gt;&lt;![CDATA[
+        private function initialise():void
+        {
+            trace(&quot;Hello world&quot;);
+        }
+    ]]&gt;&lt;/w:Script&gt;
+&lt;/w:Application&gt;
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/building-client-side-apps.html"><b>Building client-side applications</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../using-whack/building-client-side-apps/getting-started.html"><button class="button">⯇</button></a><a href="../../using-whack/using-mxml.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

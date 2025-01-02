@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="as3-reference" data-section="as3-reference/as3-cheatsheet.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActionScript 3 cheatsheet</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../as3-reference/intro.html"><button class="button">⯇</button></a><a href="../as3-reference/types.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">ActionScript 3 cheatsheet</h1><h1 id="declaring-an-event" tabindex="-1">Declaring an event</h1>
+<p>Event class:</p>
+<pre><code class="language-as3">package
+{
+    import whack.events.*;
+
+    public class HelloWorldEvent extends Event
+    {
+        public static const TRIGGER:String = &quot;trigger&quot;;
+
+        public function HelloWorldEvent(type:String)
+        {
+            super(type);
+        }
+    }
+}
+</code></pre>
+<p>Event dispatcher:</p>
+<pre><code class="language-as3">package
+{
+    import whack.events.*;
+
+    /**
+     * @eventType HelloWorldEvent.TRIGGER
+     */
+    [Event(name=&quot;trigger&quot;, type=&quot;HelloWorldEvent&quot;)]
+    /**
+     * Hello World
+     */
+    public class HelloWorldDispatcher extends EventDispatcher
+    {
+        // code
+    }
+}
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../as3-reference/intro.html"><button class="button">⯇</button></a><a href="../as3-reference/types.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

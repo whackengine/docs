@@ -1,0 +1,96 @@
+:root {
+    --font: Arimo, Verdana, Arial, sans;
+    --font-size: 0.8rem;
+    --mono-font: "Courier Prime", "Courier New", monospace;
+    --mono-font-size: 0.718rem;
+}
+
+:root {
+    --background: #fff;
+    --foreground: #000;
+    --links: #0044A3;
+
+    /* header */
+    --subheader: #555;
+
+    /* 21x26px */
+    --section-connector: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAQMAAABij4UAAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAZQTFRFAAAAbW1tBjjpswAAAAJ0Uk5TAP9bkSK1AAAAE0lEQVR4nGNkUHjAyMDAwEhjGgC4og0bCF08YwAAAABJRU5ErkJggg==);
+    --section-connector-empty-sec: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAQMAAABij4UAAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAZQTFRFAAAAbW1tBjjpswAAAAJ0Uk5TAP9bkSK1AAAAFUlEQVR4nGNkYGBgJAlzTSNNPQQDACcOALvdPaRjAAAAAElFTkSuQmCC);
+    --section-connector-expand: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAgMAAAAlL//QAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAxQTFRFAAAAbW1t////AAAAye+jmwAAAAR0Uk5TAP///7MtQIgAAAAsSURBVHicY2QAA0bSKdaA/2uAFNuSXzEgasU3ZOrn04Q9GIIQlVB95FoLBgAFSRMbHnPUAQAAAABJRU5ErkJggg==);
+    --section-connector-collapse: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAgMAAAAlL//QAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAxQTFRFAAAAbW1t////AAAAye+jmwAAAAR0Uk5TAP///7MtQIgAAAAnSURBVHicY2QAA0bSKdaA/2uAFNuSXzGY1M+nCXtwyEH1kWstGAAABTkTG+cTOnEAAAAASUVORK5CYII=);
+
+    /* code */
+    --code-block-border: #ccc;
+    --code-block-bg: #F0F7FE;
+
+    /* quote */
+    --quote-border: #bb9;
+    --quote-bg: #ffa;
+
+    /* focus */
+    --focus-border: #007DD8;
+
+    /* button */
+    --button-bg: linear-gradient(0deg, rgba(223,223,223,1) 0%, rgba(153,152,152,1) 100%);
+    --button-hover-bg: linear-gradient(0deg, rgba(223,223,223,1) 0%, rgba(203,202,202,1) 100%);
+    --button-fg: #333;
+    --button-disabled-fg: #888;
+
+    /* table */
+    --table-border-color: #555;
+    --table-header-bg: #999;
+    --table-alternate-bg: #bbb;
+
+    /* scrollbar */
+    --scrollbar-thumb: #777;
+    --scrollbar-track: #ddd;
+
+    /* selector */
+    --selector-bg: #fff;
+    --selector-border: #777;
+}
+
+html[data-dark="true"] {
+    --background: #333;
+    --foreground: #fff;
+    --links: #80a4FF;
+
+    /* header */
+    --subheader: #ddd;
+
+    /* 21x26px */
+    --section-connector: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAQMAAABij4UAAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAZQTFRFAAAAu7u7N+61SQAAAAJ0Uk5TAP9bkSK1AAAAE0lEQVR4nGNkUHjAyMDAwEhjGgC4og0bCF08YwAAAABJRU5ErkJggg==);
+    --section-connector-empty-sec: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAQMAAABij4UAAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAZQTFRFAAAAu7u7N+61SQAAAAJ0Uk5TAP9bkSK1AAAAFUlEQVR4nGNkYGBgJAlzTSNNPQQDACcOALvdPaRjAAAAAElFTkSuQmCC);
+    --section-connector-expand: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAgMAAAAlL//QAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAxQTFRFAAAAu7u7QkJC////BzaulwAAAAR0Uk5TAP///7MtQIgAAAAsSURBVHicY2QAA0bSKdaA/2uAFNuSXzEgasU3ZOrn04Q9GIIQlVB95FoLBgAFSRMbHnPUAQAAAABJRU5ErkJggg==);
+    --section-connector-collapse: url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaAgMAAAAlL//QAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAxQTFRFAAAAu7u7QkJC////BzaulwAAAAR0Uk5TAP///7MtQIgAAAAnSURBVHicY2QAA0bSKdaA/2uAFNuSXzGY1M+nCXtwyEH1kWstGAAABTkTG+cTOnEAAAAASUVORK5CYII=);
+
+    /* code */
+    --code-block-border: #999;
+    --code-block-bg: #50575E;
+
+    /* quote */
+    --quote-border: #995;
+    --quote-bg: #661;
+
+    /* focus */
+    --focus-border: #779DF8;
+
+    /* button */
+    --button-bg: linear-gradient(0deg,#333 0%, #555 100%);
+    --button-hover-bg: linear-gradient(0deg, #333 0%, #777 100%);
+    --button-fg: #aaa;
+    --button-disabled-fg: #656565;
+
+    /* table */
+    --table-border-color: #808080;
+    --table-header-bg: #454545;
+    --table-alternate-bg: #404040;
+
+    /* scrollbar */
+    --scrollbar-thumb: #555;
+    --scrollbar-track: #aaa;
+
+    /* selector */
+    --selector-bg: #333;
+    --selector-border: #999;
+}

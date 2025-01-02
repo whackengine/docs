@@ -1,0 +1,118 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font);
+    font-size: var(--font-size);
+
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+}
+
+pre, code {
+    font-family: var(--mono-font);
+    font-size: var(--mono-font-size);
+}
+
+pre {
+    background: var(--code-block-bg);
+    border: 1px solid var(--code-block-border);
+    padding: 0.5rem;
+    overflow: auto;
+    margin: 1rem;
+}
+
+a {
+    color: var(--links);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--links);
+}
+
+h2, h3, h4, h5 {
+    color: var(--subheader);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+.section-heading-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.7rem;
+}
+
+/* Tables */
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+table td {
+    padding: 3px 20px;
+    border: 1px var(--table-border-color) solid;
+}
+table thead {
+    background: var(--table-header-bg);
+}
+table thead td {
+    font-weight: 700;
+    border: none;
+}
+table td, table tr {
+    font-size: var(--font-size);
+}
+table thead th {
+    padding: 3px 20px;
+    border: 1px var(--table-border-color) solid;
+}
+/* Alternate background colors for rows */
+table tbody tr:nth-child(2n) {
+    background: var(--table-alternate-bg);
+}
+
+/* Quote blocks */
+
+blockquote {
+    background: var(--quote-bg);
+    border: 1px solid var(--quote-border);
+    padding: 0.5rem;
+}
+
+/* Selector */
+
+select {
+    background: var(--selector-bg);
+    border: 1px solid var(--selector-border);
+    padding: 0.3rem;
+    font-size: 0.73rem;
+    color: var(--foreground);
+}
+
+select:hover, select:active, select:focus {
+    outline: none;
+}

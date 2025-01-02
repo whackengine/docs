@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="as3-reference" data-section="as3-reference/intro.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><div><button class="button" disabled>⯇</button></div><a href="../as3-reference/as3-cheatsheet.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Introduction</h1><p>ActionScript 3 is the primary general purpose, object-oriented scripting language supported by the Whack engine, which is based in the ECMAScript fourth edition. Whack supports certain features not contained in the specification.</p>
+<h1 id="specification" tabindex="-1">Specification</h1>
+<p><a href="https://web.archive.org/web/20240424210812/https://static.bloople.net/ActionScript%203%20Language%20Specification.pdf">ActionScript 3 Language Specification</a></p>
+<p><a href="https://ecma-international.org/wp-content/uploads/ECMA-262_3rd_edition_december_1999.pdf">ECMA-262 Third Edition</a></p>
+<p><a href="https://www.ecma-international.org/wp-content/uploads/ECMA-357_2nd_edition_december_2005.pdf">ECMA-357 Second Edition</a></p>
+<h1 id="basic-programs" tabindex="-1">Basic programs</h1>
+<p>The following program prints &quot;Hello world&quot; to the console:</p>
+<pre><code>trace(&quot;Hello world&quot;);
+</code></pre>
+<p>The following program defines a range clamping function:</p>
+<pre><code>function clamp(val:Number, start:Number, end:Number):Number
+{
+    return Math.min(Math.max(val, start), end);
+}
+</code></pre>
+<p>The following program defines a global variable:</p>
+<pre><code>package
+{
+    public const DELTA:Number = 2 - 7;
+}
+</code></pre>
+<p>The following program defines a function at the package <code>com.company.max</code>:</p>
+<pre><code>package com.company.max
+{
+    public function contract(team:Team):void
+    {
+        trace(&quot;a phone call to&quot;, team.name);
+    }
+}
+</code></pre>
+<p>The following program defines the representation of a team in a company as an ActionScript class:</p>
+<pre><code>package com.company.max
+{
+    public class Team
+    {
+        private var m_name:String;
+
+        public function Team(name:String)
+        {
+            m_name = name;
+        }
+        public function get name():String
+        {
+            return m_name;
+        }
+    }
+}
+</code></pre>
+<p>The following program demonstrates how you basically define and use enumeration types:</p>
+<pre><code>package com.company.max
+{
+    public enum Priority
+    {
+        const LOW;
+        const HIGH;
+    }
+}
+
+import com.company.max.Priority;
+
+var p:Priority?;
+
+// using string literal
+p = &quot;low&quot;;
+p = &quot;high&quot;;
+
+// using the property operator
+p = Priority.LOW;
+p = Priority.HIGH;
+
+eqv();
+
+function eqv():void
+{
+    // equivalent numbers
+    trace(&quot;number of Priority.LOW:&quot;, Priority.LOW.valueOf());
+    trace(&quot;number of Priority.HIGH:&quot;, Priority.HIGH.valueOf());
+
+    // equivalent strings
+    trace(&quot;string of Priority.LOW:&quot;, Priority.LOW.toString());
+    trace(&quot;string of Priority.HIGH:&quot;, Priority.HIGH.toString());
+}
+</code></pre>
+<p>Log:</p>
+<pre><code class="language-plain">number of Priority.LOW: 0
+number of Priority.HIGH: 1
+string of Priority.LOW: low
+string of Priority.HIGH: high
+</code></pre>
+<p>The following program demonstrates using <code>RecordLike</code> classes to initialise a class using an object initialiser:</p>
+<pre><code>package
+{
+    [RecordLike]
+    public class AcquisitionOptions
+    {
+        public var color:String;
+
+        public var size:ClothSize;
+    }
+}
+
+var o1:AcquisitionOptions = {
+    color: &quot;green&quot;
+};
+
+var o2:Object = AcquisitionOptions({
+    size: &quot;P&quot;,
+});
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><div><button class="button" disabled>⯇</button></div><a href="../as3-reference/as3-cheatsheet.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

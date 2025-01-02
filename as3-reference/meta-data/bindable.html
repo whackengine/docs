@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="as3-reference" data-section="as3-reference/meta-data/bindable.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bindable</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../../as3-reference/index.html"><b>ActionScript 3 reference</b></a> <b>/</b> <a href="../../as3-reference/meta-data.html"><b>Meta-data</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../as3-reference/meta-data/event.html"><button class="button">⯇</button></a><a href="../../as3-reference/meta-data/recordlike.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Bindable</h1><p>The <code>[Bindable]</code> meta-data is used to trigger a <code>PropertyChangeEvent</code> event when one or more properties of a class are assigned. The event is only dispatched if <code>newValue !== prevValue</code> (notice the strict <code>!==</code> operator).</p>
+<p>It takes one of the following forms:</p>
+<pre><code class="language-as3">[Bindable]
+[Bindable(&quot;eventName&quot;)]
+[Bindable(event=&quot;eventName&quot;)]
+</code></pre>
+<p>If the event name is omitted, it defaults to <code>&quot;propertyChange&quot;</code>.</p>
+<p>A setter is allowed to specify the <code>[Bindable]</code> meta-data.</p>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../../as3-reference/index.html"><b>ActionScript 3 reference</b></a> <b>/</b> <a href="../../as3-reference/meta-data.html"><b>Meta-data</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../as3-reference/meta-data/event.html"><button class="button">⯇</button></a><a href="../../as3-reference/meta-data/recordlike.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

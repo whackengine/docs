@@ -1,0 +1,22 @@
+/* Arimo */
+
+@font-face {
+    font-family: Arimo;
+    font-weight: 400 800;
+    src: url(Arimo/Arimo-VariableFont_wght.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: Arimo;
+    font-weight: 400 800;
+    font-style: italic;
+    src: url(Arimo/Arimo-Italic-VariableFont_wght.ttf) format(truetype);
+}
+
+/* Courier Prime */
+
+@font-face {
+    font-family: "Courier Prime";
+    font-weight: 400;
+    src: url(Courier_Prime/CourierPrime-Regular.ttf) format(truetype);
+}

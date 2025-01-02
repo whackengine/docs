@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="using-whack" data-section="using-whack/using-mxml/mxml-cheatsheet.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXML cheatsheet</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-mxml.html"><b>Using the MXML language</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../using-whack/using-mxml/mxml-reference.html"><button class="button">⯇</button></a><a href="../../using-whack/using-css.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">MXML cheatsheet</h1><h1 id="importing-the-whack-namespace" tabindex="-1">Importing the Whack namespace</h1>
+<pre><code>xmlns:w=&quot;http://ns.whack.net/2024&quot;
+</code></pre>
+<h1 id="importing-an-actionscript-package-as-a-namespace" tabindex="-1">Importing an ActionScript package as a namespace</h1>
+<pre><code>xmlns:xy=&quot;com.x.y.*&quot;
+</code></pre>
+<p>Recursive:</p>
+<pre><code>xmlns:xy=&quot;com.x.y.**&quot;
+</code></pre>
+<h1 id="data-binding" tabindex="-1">Data binding</h1>
+<pre><code>text=&quot;Last password: {password.text}&quot;
+</code></pre>
+<h1 id="handling-an-event" tabindex="-1">Handling an event</h1>
+<pre><code>click=&quot;trace('click event:', event);&quot;
+</code></pre>
+<h1 id="inserting-xhtml" tabindex="-1">Inserting XHTML</h1>
+<pre><code class="language-mxml">&lt;w:xhtml&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p&gt;Paragraph &lt;b&gt;number&lt;/b&gt; &lt;i&gt;1&lt;/i&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Item a.&lt;/li&gt;
+        &lt;li&gt;Item b. {password.text}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/w:xhtml&gt;
+</code></pre>
+<h1 id="inserting-html" tabindex="-1">Inserting HTML</h1>
+<pre><code class="language-mxml">&lt;w:html value=&quot;{html_source.value}&quot;/&gt;
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-mxml.html"><b>Using the MXML language</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../using-whack/using-mxml/mxml-reference.html"><button class="button">⯇</button></a><a href="../../using-whack/using-css.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

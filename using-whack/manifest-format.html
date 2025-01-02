@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="using-whack" data-section="using-whack/manifest-format.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Whack™ manifest format</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../using-whack/index.html"><b>Using Whack™ engine</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../using-whack/using-the-command-line.html"><button class="button">⯇</button></a><a href="../using-whack/building-client-side-apps.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">The Whack™ manifest format</h1><p>The Whack manifest is a TOML file with the name <code>whack.toml</code>, placed in the top directory of a project, that describes an optional Whack workspace and a Whack package.</p>
+<h1 id="example-manifests" tabindex="-1">Example manifests</h1>
+<h2 id="client-side-project" tabindex="-1">Client side project</h2>
+<p>The Whack manifest for a client side application looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = &quot;com.example.hello-world&quot;
+version = &quot;0.1.0&quot;
+source-path = [&quot;src&quot;]
+
+[client-side]
+main-class = &quot;com.example.Example&quot;
+
+[dependencies]
+</code></pre>
+<h2 id="server-side-project" tabindex="-1">Server side project</h2>
+<p>The Whack manifest for a server side application looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = &quot;com.example.hello-world&quot;
+version = &quot;0.1.0&quot;
+source-path = [&quot;src&quot;]
+
+[server-side]
+executable-name = &quot;example&quot;
+
+[dependencies]
+</code></pre>
+<h2 id="library-project" tabindex="-1">Library project</h2>
+<p>The Whack manifest for a library project looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = &quot;com.example.util&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Me &lt;me@example.com&gt;&quot;]
+license = &quot;MIT or Apache-2.0&quot;
+description = &quot;My utilities&quot;
+source-path = [&quot;src&quot;]
+
+[dependencies]
+</code></pre>
+<h2 id="workspace" tabindex="-1">Workspace</h2>
+<p>The Whack manifest for a workspace that consists of multiple packages looks like the following:</p>
+<pre><code class="language-toml">[workspace]
+members = [
+    &quot;packages/com.example.foo&quot;,
+    &quot;packages/com.example.bar&quot;,
+]
+</code></pre>
+<p>Note that a manifest describing a workspace can also describe a package, as in in the following manifest:</p>
+<pre><code class="language-toml">[workspace]
+members = [
+    &quot;packages/com.example.foo&quot;,
+    &quot;packages/com.example.bar&quot;,
+]
+
+[package]
+name = &quot;com.example.hello-world&quot;
+version = &quot;0.1.0&quot;
+source-path = [&quot;src&quot;]
+
+[client-side]
+main-class = &quot;Example&quot;
+</code></pre>
+<h1 id="defining-configuration-constants" tabindex="-1">Defining configuration constants</h1>
+<p>Define configuration constants for a package through the <code>[define]</code> section:</p>
+<pre><code class="language-toml">[define]
+&quot;CONFIG::debugging&quot; = true
+</code></pre>
+<h1 id="specifying-the-package-name" tabindex="-1">Specifying the package name</h1>
+<p>The <code>package.name</code> field must be a string matching the Perl regular expression <code>[A-Za-z][A-Za-z0-9.\-_]*</code>.</p>
+<pre><code class="language-toml">[package]
+name = &quot;com.helper.util&quot;
+</code></pre>
+<h1 id="specifying-version" tabindex="-1">Specifying version</h1>
+<p>The <code>package.version</code> field is assigned a full SemVer version number consisting of major, minor and patch versions.</p>
+<pre><code class="language-toml">[package]
+version = &quot;0.1.0&quot;
+</code></pre>
+<h1 id="specifying-sources" tabindex="-1">Specifying sources</h1>
+<p>Specify sources to be compiled through the <code>package.source-paths</code> field:</p>
+<pre><code class="language-toml">[package]
+source-path = [&quot;src&quot;]
+</code></pre>
+<p>Note that each <code>source-path</code> entry includes either a file or a full directory recursively. ActionScript package definitions may contain zero or more definitions.</p>
+<h1 id="specifying-dependencies" tabindex="-1">Specifying dependencies</h1>
+<p>A dependency may be structured in different ways inside the <code>[dependencies]</code> section:</p>
+<pre><code class="language-toml">[dependencies]
+# Registry dependency
+x = &quot;0.1.0&quot;
+# Local dependency
+x = { path = &quot;../depname&quot;, version = &quot;1&quot; }
+# Git dependency
+x = { git = &quot;https://github.com/example/x.git&quot; }
+# Git dependency (specific branch)
+x = { git = &quot;https://github.com/example/x.git&quot;, branch = &quot;next&quot; }
+# Git dependency (specific revision)
+x = { git = &quot;https://github.com/example/x.git&quot;, rev = &quot;7ef403910a5a7ef403910a5a&quot; }
+</code></pre>
+<h1 id="linking-a-build-script" tabindex="-1">Linking a build script</h1>
+<p>The Whack manifest may link a script through <code>package.build-script</code> that runs before the sources of a Whack package are compiled. This option includes sources similiarly to <code>package.source-path</code>, but for the build script.</p>
+<pre><code class="language-toml">[package]
+build-script = [&quot;build.as&quot;]
+</code></pre>
+<p>The build script is evaluated in the server-side runtime (<code>RT::server</code>).</p>
+<h2 id="specifying-build-dependencies" tabindex="-1">Specifying build dependencies</h2>
+<p>Dependencies for the build script are specified in the <code>[build-dependencies]</code> section.</p>
+<h1 id="specifying-licenses" tabindex="-1">Specifying licenses</h1>
+<p>License types may be described through the <code>package.license</code> field, separated by the <code>&quot; or &quot;</code> delimiter:</p>
+<pre><code class="language-toml">[package]
+license = &quot;MIT or Apache-2.0&quot;
+</code></pre>
+<p>Indicate the license file through the <code>package.license-file</code> field:</p>
+<pre><code class="language-toml">[package]
+license-file = &quot;LICENSE&quot;
+</code></pre>
+<h1 id="specifying-authors" tabindex="-1">Specifying authors</h1>
+<p>Specify authors of a package through the <code>package.authors</code> field, using the format <code>Full Name &lt;email@example.com&gt;</code>:</p>
+<pre><code class="language-toml">[package]
+authors = [&quot;Example &lt;email@example.com&gt;&quot;]
+</code></pre>
+<h1 id="specifying-keywords" tabindex="-1">Specifying keywords</h1>
+<pre><code class="language-toml">[package]
+keywords = [&quot;container&quot;, &quot;utility&quot;]
+</code></pre>
+<h1 id="specifying-categories" tabindex="-1">Specifying categories</h1>
+<pre><code class="language-toml">[package]
+categories = [&quot;sound&quot;, &quot;graphics&quot;]
+</code></pre>
+<h1 id="specifying-description" tabindex="-1">Specifying description</h1>
+<pre><code class="language-toml">[package]
+description = &quot;Some description.&quot;
+</code></pre>
+<h1 id="including-and-excluding-files" tabindex="-1">Including and excluding files</h1>
+<p>The following mutually-exclusive fields contain <a href="https://git-scm.com/docs/gitignore">.gitignore-like</a> entries used for indicating which files or directories shall be uploaded when publishing:</p>
+<pre><code class="language-toml">[package]
+# Optional: choose this for including specific files or directories
+include = [&quot;/foo&quot;]
+# or choose this for excluding specific files or directories.
+exclude = [&quot;/bar&quot;]
+</code></pre>
+<p>Note that the <code>whack.toml</code> file is always published, regardless of these options.</p>
+<h1 id="client-side-section" tabindex="-1">Client-side section</h1>
+<p>The <code>[client-side]</code> table indicates that the project is designed for the client-side runtime. The <code>main-class</code> option indicates the main class instantiated on startup, which must be a <code>whack.core.Application</code> subclass (if it is a MXML component, the root tag is <code>&lt;w:Application&gt;</code> or a subtype).</p>
+<pre><code class="language-toml">[client-side]
+main-class = &quot;com.example.Main&quot;
+</code></pre>
+<h1 id="server-side-section" tabindex="-1">Server-side section</h1>
+<p>The <code>[server-side]</code> table indicates that the project is designed for the server-side runtime. The <code>executable-name</code> option indicates the name for the command line tool compiled for the project.</p>
+<pre><code class="language-toml">[server-side]
+executable-name = &quot;example-clt&quot;
+</code></pre>
+<h1 id="metadata" tabindex="-1">Metadata</h1>
+<p>The <code>package.metadata</code> field consists of ignored content used by external tools.</p>
+<pre><code class="language-toml">[package.metadata.foo]
+bar = &quot;qux&quot;
+</code></pre>
+<h1 id="linking-javascript" tabindex="-1">Linking JavaScript</h1>
+<p>The Whack manifest may specify multiple <code>[[javascript]]</code> sections linking a JavaScript file to be loaded right before the ActionScript environment. The <code>import-declaration</code> field must provide highly specific aliases to prevent name conflict.</p>
+<blockquote>
+<p>Note that the JavaScript filename must be very specific to prevent a name conflict.</p>
+</blockquote>
+<pre><code class="language-toml">[[javascript]]
+path = &quot;lib.min.js&quot;
+import-declaration = 'import * as lib from &quot;./lib.min.js&quot;;'
+</code></pre>
+<p>The <code>[[javascript]]</code> section may be designed exclusive to the client side (<code>RT::client</code>):</p>
+<pre><code class="language-toml">[[javascript]]
+path = &quot;lib.min.js&quot;
+import-declaration = 'import * as lib from &quot;./lib.min.js&quot;;'
+client-side = true
+</code></pre>
+<p>The <code>[[javascript]]</code> section may be designed exclusive to the server side (<code>RT::server</code>):</p>
+<pre><code class="language-toml">[[javascript]]
+path = &quot;lib.min.js&quot;
+import-declaration = 'import * as lib from &quot;./lib.min.js&quot;;'
+server-side = true
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../using-whack/index.html"><b>Using Whack™ engine</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../using-whack/using-the-command-line.html"><button class="button">⯇</button></a><a href="../using-whack/building-client-side-apps.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

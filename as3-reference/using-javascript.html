@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="as3-reference" data-section="as3-reference/using-javascript.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using JavaScript bridge</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../as3-reference/using-configuration-constants.html"><button class="button">⯇</button></a><div><button class="button" disabled>⯈</button></div></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">Using JavaScript bridge</h1><p>ActionScript is converted into JavaScript code during compilation step in a hybrid manner. The target audience for this section are third party library developers that reuse JavaScript libraries.</p>
+<p>ActionScript can access JavaScript objects using its native operators, except for lexical references, however certain methods of the <code>JSBridge</code> static class might be necessary.</p>
+<p>The following example accesses the global <code>Math</code> object:</p>
+<pre><code>trace(JSBridge.lexical(&quot;Math&quot;).random());
+</code></pre>
+<h1 id="javascript-values" tabindex="-1">JavaScript values</h1>
+<p>There are certain points to be aware of:</p>
+<ul>
+<li>Variables that hold a JavaScript value are of the <code>*</code> (wildcard) type.</li>
+<li>The methods <code>JSBridge.newArray()</code> and <code>JSBridge.toJavascriptArray()</code> construct a JavaScript <code>Array</code> object.</li>
+<li>The methods <code>JSBridge.newPlainObject()</code> and <code>JSBridge.toJavascriptPlainObject()</code> construct a JavaScript plain object (<code>Object</code>).</li>
+<li>There are miscellaneous conversion methods defined by the <code>JSBridge</code> static class, such as <code>toJavascriptFunction()</code>.</li>
+</ul>
+<h1 id="supported-runtimes" tabindex="-1">Supported runtimes</h1>
+<p>The JavaScript host environment is expected to be either a HTML5 engine or a Node.js® engine.</p>
+<p>The JavaScript environment is cluttered with several classes, constants, and methods from the <a href="https://github.com/whackengine/actioncore">ActionCore</a> library as well as linked libraries. They are lexically available as that allows for name mangling in release builds of a Whack application.</p>
+<p>There are two special ActionScript configuration constants <code>RT::client</code> and <code>RT::server</code>, which are each set to either false or true, which indicate HTML5 and Node.js® platforms respectively.</p>
+<pre><code>// RT::client
+trace(&quot;HTML5:&quot;, RT::client ? &quot;in HTML5&quot; : &quot;not in HTML5&quot;);
+
+// RT::server
+trace(&quot;node:&quot;, RT::server ? &quot;in node&quot; : &quot;not in node&quot;);
+</code></pre>
+<h1 id="linking-a-javascript-file" tabindex="-1">Linking a JavaScript file</h1>
+<p>The Whack manifest may specify multiple <code>[[javascript]]</code> sections linking a JavaScript file to be imported before the ActionScript environment.</p>
+<pre><code class="language-toml">[[javascript]]
+path = &quot;pixi.min.js&quot;
+import-declaration = 'import * as PIXI from &quot;pixi.js&quot;;'
+# client-side = true
+# server-side = true
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../as3-reference/using-configuration-constants.html"><button class="button">⯇</button></a><div><button class="button" disabled>⯈</button></div></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

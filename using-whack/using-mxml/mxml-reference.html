@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html data-root="../../" data-reference="using-whack" data-section="using-whack/using-mxml/mxml-reference.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXML reference</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/general.css">
+    <link rel="stylesheet" href="../../css/chrome.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #111 0%, #555 100%)">
+            <img class="icon" src="../icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-mxml.html"><b>Using the MXML language</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../../using-whack/using-mxml.html"><button class="button">⯇</button></a><a href="../../using-whack/using-mxml/mxml-cheatsheet.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">MXML reference</h1><p>MXML is an eXtensible Markup Language used for expressing user interface components over the ActionScript language.</p>
+<h1 id="mxml-file" tabindex="-1">MXML file</h1>
+<p>A MXML file shall have a filename that identifies the name of the ActionScript class that it defines, while the parent directories after a source path determine the ActionScript package it belongs to.</p>
+<p>Given that the Whack manifest defines <code>source[0].path = &quot;src&quot;</code>, the following is an example MXML file defining the class <code>com.company.max.WeatherScreen</code>:</p>
+<pre><code class="language-mxml">&lt;!-- src/com/company/max/WeatherScreen.mxml --&gt;
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;w:HGroup xmlns:w=&quot;http://ns.whack.net/2024&quot;&gt;
+    &lt;w:Label variant=&quot;heading&quot; value=&quot;Weather&quot;/&gt;
+&lt;/w:HGroup&gt;
+</code></pre>
+<h1 id="w-prefix" tabindex="-1">w prefix</h1>
+<p>The convention is to assign the <code>w</code> prefix as the URI <code>http://ns.whack.net/2024</code>, identifying the Whack elements and component set.</p>
+<h1 id="%3Cw%3Ascript%2F%3E" tabindex="-1">&lt;w:Script/&gt;</h1>
+<p>The <code>&lt;w:Script/&gt;</code> element is used for defining properties and methods inside the component using the ActionScript language.</p>
+<pre><code class="language-mxml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;w:HGroup xmlns:w=&quot;http://ns.whack.net/2024&quot;&gt;
+    &lt;w:Script&gt;&lt;![CDATA[
+        // definitions
+    ]]&gt;&lt;/w:Script&gt;
+&lt;/w:HGroup&gt;
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../../using-whack/index.html"><b>Home</b></a> <b>/</b> <a href="../../using-whack/index.html"><b>Using Whack™ engine</b></a> <b>/</b> <a href="../../using-whack/using-mxml.html"><b>Using the MXML language</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../../using-whack/using-mxml.html"><button class="button">⯇</button></a><a href="../../using-whack/using-mxml/mxml-cheatsheet.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../../toc.js"></script>
+    <script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-root="../" data-reference="as3-reference" data-section="as3-reference/asdoc.html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASDoc comments</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar" style="background: linear-gradient(0deg, #311 0%, #933 100%)">
+            <img class="icon" src="icon-transparent.png" alt="Icon"><select id="color-mode-selector"><option value="system">System color</option><option value="light">Light</option><option value="dark">Dark</option></select><button class="button" id="toggleSidebar">Sidebar</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-container">
+            <div class="content">
+                <!-- current section path + previous/next buttons + company logo -->
+                <div class="header-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem; align-items: end"><div class="prev-next-buttons"><a href="../as3-reference/types.html"><button class="button">⯇</button></a><a href="../as3-reference/meta-data.html"><button class="button">⯈</button></a></div><img class="company-logo" src="../company-logo.png"></div></div>
+
+                <h1 class="section-heading-title">ASDoc comments</h1><p>ASDoc comments are used to better document ActionScript entities with detailed descriptions. An ASDoc comment is in the format <code>/** [...] */</code> supporting Markdown and ASDoc tags such as <code>@param</code>.</p>
+<pre><code class="language-as3">package
+{
+    /**
+     * The global variable `x`.
+     */
+    public var x;
+}
+</code></pre>
+<h1 id="main-body" tabindex="-1">Main body</h1>
+<p>An ASDoc comment may contain a main body, whose first sentence is taken as a brief summary.</p>
+<h1 id="supported-asdoc-tags" tabindex="-1">Supported ASDoc tags</h1>
+<p>ASDoc tags start with an at-sign (<strong>@</strong>), appearing inside an ASDoc comment.</p>
+<h2 id="%40author" tabindex="-1">@author</h2>
+<p>Indicates the author(s) of an entity.</p>
+<pre><code class="language-plain">@author Example Author
+</code></pre>
+<h2 id="%40copy" tabindex="-1">@copy</h2>
+<p>Copies the documentation comment of another entity, patching any anchor links. It takes one of the following formats:</p>
+<pre><code class="language-plain">@copy x
+@copy Foo#x
+@copy #x
+</code></pre>
+<p>The hash (<code>#</code>) indicates an instance property.</p>
+<h2 id="%40default" tabindex="-1">@default</h2>
+<p>Indicates the default value of an entity.</p>
+<pre><code class="language-plain">@default 0xFF
+</code></pre>
+<h2 id="%40deprecated" tabindex="-1">@deprecated</h2>
+<p>Indicates that an entity is deprecated.</p>
+<pre><code class="language-plain">@deprecated
+@deprecated Message
+</code></pre>
+<h2 id="%40eventtype" tabindex="-1">@eventType</h2>
+<p>Indicates a static constan for an <code>[Event]</code> meta-data.</p>
+<pre><code class="language-plain">@eventType Event.ENTER_FRAME
+</code></pre>
+<h2 id="%40example" tabindex="-1">@example</h2>
+<p>Attaches an example.</p>
+<pre>
+@example
+```
+trace("Hello, world!");
+```
+</pre>
+<h2 id="%40inheritdoc" tabindex="-1">@inheritDoc</h2>
+<p>Inherits documentation from a base entity (base class or method from base class).</p>
+<pre><code class="language-plain">@inheritDoc
+</code></pre>
+<h2 id="%40internal" tabindex="-1">@internal</h2>
+<p>Attaches internal description that is not rendered into the ASDoc output.</p>
+<pre><code class="language-plain">@internal Internal comment.
+</code></pre>
+<h2 id="%40param" tabindex="-1">@param</h2>
+<p>Attaches a description to a parameter of a function.</p>
+<pre><code class="language-plain">@param paramName Description
+</code></pre>
+<h2 id="%40private" tabindex="-1">@private</h2>
+<p>Indicates that an entity is private and should not generate ASDoc output.</p>
+<pre><code class="language-plain">@private
+</code></pre>
+<h2 id="%40productversion" tabindex="-1">@productversion</h2>
+<p>Indicates supported product versions.</p>
+<pre><code class="language-plain">@productversion Whack 1.0
+</code></pre>
+<h2 id="%40return" tabindex="-1">@return</h2>
+<p>Attaches a description to the return of a function.</p>
+<pre><code class="language-plain">@return Description
+</code></pre>
+<h2 id="%40see" tabindex="-1">@see</h2>
+<p>References an alternative entity.</p>
+<pre><code class="language-plain">@see x
+@see x [Display text]
+@see Foo#x [Display text]
+@see #x [Display text]
+</code></pre>
+<p>The hash (<code>#</code>) indicates an instance property.</p>
+<h2 id="%40throws" tabindex="-1">@throws</h2>
+<p>Indicates a possibly thrown error of a function, with an optional description.</p>
+<pre><code class="language-plain">@throws Error [Description]
+</code></pre>
+
+
+                <footer>
+                    <!-- current section path + previous/next buttons -->
+                    <div class="footer-controls" style="display: flex; flex-direction: row; justify-content: space-between"><div style="display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto"><a href="../as3-reference/index.html"><b>Home</b></a> <b>/</b> <a href="../as3-reference/index.html"><b>ActionScript 3 reference</b></a></div><div style="display: flex; flex-direction: row; gap: 1rem;"><div class="prev-next-buttons"><a href="../as3-reference/types.html"><button class="button">⯇</button></a><a href="../as3-reference/meta-data.html"><button class="button">⯈</button></a></div><div class="company-logo"></div></div></div>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="../toc.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
