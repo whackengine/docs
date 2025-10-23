@@ -12,7 +12,7 @@
     --font: "Crimson Pro", "Cambria", sans-serif;
     --ui-font: "Noto Sans", "Segoe UI", sans-serif;
     --mono-font: "Nimbus Mono", "Courier New", monospace;
-    --code-font-size: 0.79em; /* please adjust the ace font size accordingly in editor.js */
+    --code-font-size: 0.77em; /* please adjust the ace font size accordingly in editor.js */
 }
 
 /* Themes */
