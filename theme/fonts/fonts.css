@@ -4,10 +4,36 @@
 /* Crimson Pro */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* Nimbus Mono */
+/* Gourier (see OGCourier_COPYRIGHT for copyright) */
 @font-face {
-    font-family: "Nimbus Mono";
+    font-family: "Gourier";
     font-weight: 400;
-    src: url(NimbusMono-Bold.ttf) format("truetype"),
-        url(NimbusMono-Bold.woff2) format("woff2");
+    src: url(OGCourier.ttf) format("truetype"),
+        url(OGCourier.woff2) format("woff2");
+}
+
+/* Gourier (see OGCourier_COPYRIGHT for copyright) */
+@font-face {
+    font-family: "Gourier";
+    font-weight: 400;
+    font-style: italic;
+    src: url(OGCourier-Italic.ttf) format("truetype"),
+        url(OGCourier-Italic.woff2) format("woff2");
+}
+
+/* Gourier (see OGCourier_COPYRIGHT for copyright) */
+@font-face {
+    font-family: "Gourier";
+    font-weight: bold;
+    src: url(OGCourier-Bold.ttf) format("truetype"),
+        url(OGCourier-Bold.woff2) format("woff2");
+}
+
+/* Gourier (see OGCourier_COPYRIGHT for copyright) */
+@font-face {
+    font-family: "Gourier";
+    font-weight: bold;
+    font-style: italic;
+    src: url(OGCourier-BoldItalic.ttf) format("truetype"),
+        url(OGCourier-BoldItalic.woff2) format("woff2");
 }
